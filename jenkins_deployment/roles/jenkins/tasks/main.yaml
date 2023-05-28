@@ -1,0 +1,67 @@
+# - name: Create IAM access key
+#   aws_iam_access_key:
+#     user_name: "{{ iam_user_name }}"
+#     aws_access_key: "{{ aws_access_key }}"
+#     aws_secret_key: "{{ aws_secret_key }}"
+#     state: present
+#     register: access_key
+
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: install aws-cli
+  get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.8.9.zip
+    dest: /opt/awscliv2.zip
+
+- name: Install unzip package
+  apt:
+    name: unzip
+    state: present
+
+
+- name: unzip awscli installer 
+  unarchive:
+    src: /opt/awscliv2.zip
+    dest: /opt/
+    remote_src: true
+
+
+
+- name: run aws-cli install
+  command: /opt/aws/install --update
+  
+
+
+- name: Download k8s apt key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+
+- name: Add k8s APT repository
+  apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+    filename: kubernetes
+    update_cache: yes
+
+
+- name: update apt 
+  apt:
+    update_cache: yes
+
+
+- name: install kubectl
+  apt:
+    name: kubectl=1.27.0-00
+    state: present
+
+
+- name: Get EKS cluster credentials
+  command: "aws eks update-kubeconfig --region {{ region }} --name {{ eks_cluster_name }}"
+  become: false
+
+
