@@ -1,12 +1,3 @@
-# - name: Create IAM access key
-#   aws_iam_access_key:
-#     user_name: "{{ iam_user_name }}"
-#     aws_access_key: "{{ aws_access_key }}"
-#     aws_secret_key: "{{ aws_secret_key }}"
-#     state: present
-#     register: access_key
-
-
 - name: Update apt cache
   apt:
     update_cache: yes
@@ -63,5 +54,37 @@
 - name: Get EKS cluster credentials
   command: "aws eks update-kubeconfig --region {{ region }} --name {{ eks_cluster_name }}"
   become: false
+
+
+
+- name: Copy jenkins files to bastion
+  copy:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "/home/ubuntu/jenkins"
+  with_items:
+    - jenkins_namespace.yaml
+    - jenkins_deployment.yaml
+    - jenkins_service.yaml
+
+
+- name: Create Jenkins namespace
+    k8s:
+      state: present
+      src: "/home/ubuntu/jenkins/*"
+
+
+
+- name: Apply YAML files using kubectl
+ 
+
+
+- name: Apply jenkins files
+     
+        state: present
+        src: "/path/to/yaml/files/*"
+
+
+
+
 
 
