@@ -56,32 +56,32 @@
   become: false
 
 
+- name: Create directory
+  file:
+    path: /home/ubuntu/jenkins/
+    state: directory
+
+
 
 - name: Copy jenkins files to bastion
   copy:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/home/ubuntu/jenkins"
+    src: "{{ item }}"
+    dest: "/home/ubuntu/jenkins/"
   with_items:
     - jenkins_namespace.yaml
     - jenkins_deployment.yaml
     - jenkins_service.yaml
 
 
-- name: Create Jenkins namespace
-    k8s:
-      state: present
-      src: "/home/ubuntu/jenkins/*"
+
+- name: apply Jenkins yamls files
+  k8s:
+    state: present
+    src: "/home/ubuntu/jenkins/*"
 
 
 
-- name: Apply YAML files using kubectl
- 
 
-
-- name: Apply jenkins files
-     
-        state: present
-        src: "/path/to/yaml/files/*"
 
 
 
