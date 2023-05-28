@@ -1,3 +1,6 @@
 region: eu-central-1
 eks_cluster_name: MY-EKS
-role_path: /home/gemy/Desktop/project/jenkins_deployment/roles/jenkins
+Jenkinsdeployment: 
+    -  /home/ubuntu/jenkins/jenkins_namespace.yaml
+    -  /home/ubuntu/jenkins/jenkins_service.yaml
+    -  /home/ubuntu/jenkins/jenkins_deployment.yaml

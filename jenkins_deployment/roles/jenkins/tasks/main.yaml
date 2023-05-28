@@ -73,18 +73,34 @@
     - jenkins_service.yaml
 
 
+- name: Install Kubernetes Python client library using pip
+  pip:
+    name: kubernetes
 
-- name: apply Jenkins yamls files
-  k8s:
+
+
+# - name: apply Jenkins yamls files
+#   k8s:
+#     state: present
+#     src: "/home/ubuntu/jenkins/"
+
+
+
+
+# - name: Create a Deployment 
+#   become: false
+#   kubernetes.core.k8s:
+#     state: present
+#     src: "/home/ubuntu/jenkins/"
+  
+
+- name: Create Jenkins_Deployment 
+  become: false
+  kubernetes.core.k8s:
     state: present
-    src: "/home/ubuntu/jenkins/*"
-
-
-
-
-
-
-
+    src: "{{ item }}"
+  loop:
+    "{{ Jenkinsdeployment }}"
 
 
 
