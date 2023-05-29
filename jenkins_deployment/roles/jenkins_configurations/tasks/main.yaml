@@ -82,23 +82,6 @@
   pip:
     name: kubernetes
 
-
-
-# - name: apply Jenkins yamls files
-#   k8s:
-#     state: present
-#     src: "/home/ubuntu/jenkins/"
-
-
-
-
-# - name: Create a Deployment 
-#   become: false
-#   kubernetes.core.k8s:
-#     state: present
-#     src: "/home/ubuntu/jenkins/"
-  
-
 - name: Create Jenkins_Deployment 
   become: false
   kubernetes.core.k8s:

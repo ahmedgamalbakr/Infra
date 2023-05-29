@@ -1,0 +1,81 @@
+- name: Download Docker GPG key
+  get_url:
+    url: "https://download.docker.com/linux/ubuntu/gpg"
+    dest: "/tmp/docker.gpg"
+    
+
+- name: check docker-archive-keyring.gpg exist 
+  stat:
+    path:  "{{ dockerArchiveKeyringPath }}"
+  register: key_exists
+
+- name: Import Docker GPG key
+  shell: cat /tmp/docker.gpg | sudo gpg  --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg 
+  when: key_exists.stat.exists == false
+
+- name: Get architecture
+  shell: dpkg --print-architecture
+  register: dpkg_architecture
+
+- name: Add Docker repository to apt sources
+  lineinfile:
+    path: /etc/apt/sources.list.d/docker.list
+    line: 'deb [arch={{ dpkg_architecture.stdout }} signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu jammy stable'
+    create: true
+
+- name: update apt 
+  apt:
+    update_cache: yes
+
+
+
+- name: install docker packages 
+  apt:
+    name: docker-ce
+    state: present
+
+
+
+- name: Change file ownership
+  file:
+    path:  /var/run/docker.sock
+    owner: ubuntu
+    group: ubuntu
+    mode: '0666'
+
+- name: Add Docker group
+  group:
+    name: docker
+    state: present
+
+- name: Add current user to Docker group
+  user:
+    name: ubuntu
+    groups: docker
+    append: yes
+
+- name: Start and enable Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+
+
+- name: install git packages 
+  apt:
+    name: git
+    state: present
+
+
+- name: Create a directory for pipline
+  file:
+    path: /home/ubuntu/jenkins_home
+    state: directory
+    mode: '0777'
+
+- name: install java 11 
+  apt:
+    name: openjdk-11-jdk
+    state: present
+

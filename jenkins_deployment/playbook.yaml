@@ -3,4 +3,5 @@
   become: true
   gather_facts: false
   roles:
-    - jenkins
+    - jenkins_configurations
+    - slave_node
