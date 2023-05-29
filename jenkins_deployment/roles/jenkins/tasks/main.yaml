@@ -72,6 +72,11 @@
     - jenkins_deployment.yaml
     - jenkins_service.yaml
 
+- name: Install pip for Python3
+  apt:
+    name: python3-pip
+    state: present
+
 
 - name: Install Kubernetes Python client library using pip
   pip:
