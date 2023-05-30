@@ -1,5 +1,5 @@
-# $${\color{black} CI/CD  --- Task }$$
-> About the Task:
+# $${\color{black} ITI --- CI/CD  --- Project }$$
+> About the Project:
 
 Task contains the Terraform code to build priavte EKS and bastionhost on aws, The infra includes creating a VPC with public and private subnets, launching bastion instance in the public subnet, and creating Private EKS Cluster .
 
@@ -35,7 +35,7 @@ This project uses Terraform to create the following AWS resources:
 - Terraform installed on your local machine
 - AWS credentials configured on your local machine
 - ssh on your local machine to connect to BastionHost to access from it the private cluster
-- A Secret Manager in AWS to store aws credentials stored                                   (aws_access_key_id aws_secret_access_key) to but them in bastion host to connect to cluster by it 
+- A Secret Manager at AWS to store user credentials then put them in bastion .
 - A S3 bucket to store the Terraform state file. 
 
 ###                    ______________________________________________________________________________________________
@@ -52,8 +52,8 @@ This project uses Terraform to create the following AWS resources:
 
 ## Ansible configuration
  
- 1. Install Packages like awscli to use it to update kubeconfig file and kubectl to able to connect to the Cluster .
- 2. Install Docker and Openjdk also to make bastion act in the same time as a slave for jenkins master .
+ 1. Install Packages like awscli to use it to update kubeconfig file and kubectl to able to connect to the Cluster
+ 2. Install Docker and Openjdk also to make bastion act in the same time as a slave for jenkins master.
  3. Move Jenkins Deployment manifest files to BastionHost by ansible and then apply it by k8s ansible module to deploy jenkins in cluster in jenkins namespace .
  
 
@@ -65,20 +65,25 @@ This project uses Terraform to create the following AWS resources:
 ![image](https://github.com/ahmedgamalbakr/Infra/assets/106693415/bcf0e6a8-23c4-4972-a3b9-23517d0b7ef4)
 
 
+
 ## Jenkins 
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/dea58c16-b761-4b02-bbf4-583d0c55920e)
 
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/41003134-c634-4fdf-a293-bab9c64e1362)
 
 
+
 ## Add slave
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/fe1fef20-1d4c-4299-a13d-3262f4c1d72a)
+
 
 
 ## Add Credentials
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/d4240d8d-f923-4ffb-8610-a4063dfb2282)
 
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/04643397-e2dc-41af-ba6b-6848c20a59a3)
+
+
 
 
 
@@ -96,6 +101,8 @@ This project uses Terraform to create the following AWS resources:
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/61201c08-d54c-47d3-befc-72dbb8e2ed18)
 
 
+
+
 ## Application
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/a9b7bf50-ae2b-4149-ba50-f78a7542a0af)
 
@@ -107,6 +114,7 @@ This project uses Terraform to create the following AWS resources:
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/9dda762a-8ea1-4495-ad79-a091411d2881)
 
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/d47f0bfb-6cb9-42c1-b3b7-ed255bf8e9df)
+
 
 
 ## Author
