@@ -1,4 +1,4 @@
-# $${\color{black} ITI --- CI/CD  --- Project }$$
+# FULL-CI-CD-ITI-PROJECT
 > About the Project:
 
 Task contains the Terraform code to build priavte EKS and bastionhost on aws, The infra includes creating a VPC with public and private subnets, launching bastion instance in the public subnet, and creating Private EKS Cluster .
@@ -28,6 +28,15 @@ This project uses Terraform to create the following AWS resources:
 
 
 ###                ______________________________________________________________________________________________
+
+## Tools
+* Docker
+* Kubernetes
+* Terraform
+* Ansible
+* Jenkins
+* AWS
+
 
 # Prerequisites 
 
