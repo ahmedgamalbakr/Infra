@@ -1,4 +1,4 @@
-# $${\color{red} ITI CI/CD Task}$$
+# $${\color{black} CI/CD Task }$$
 > About the Task:
 
 *Task contains the Terraform code to build priavte EKS and bastionhost on aws, The infra includes creating a VPC with public and private subnets, launching bastion instance in the public subnet, and creating Private EKS Cluster .
@@ -62,6 +62,39 @@ This project uses Terraform to create the following AWS resources:
 ![image](https://github.com/ahmedgamalbakr/Infra/assets/106693415/87a7ecb8-646e-4723-864b-390747ef5dd8)
 
 ![image](https://github.com/ahmedgamalbakr/Infra/assets/106693415/bcf0e6a8-23c4-4972-a3b9-23517d0b7ef4)
+
+
+## Jenkins 
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/dea58c16-b761-4b02-bbf4-583d0c55920e)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/41003134-c634-4fdf-a293-bab9c64e1362)
+
+
+## Add slave
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/fe1fef20-1d4c-4299-a13d-3262f4c1d72a)
+
+
+## Add Credentials
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/d4240d8d-f923-4ffb-8610-a4063dfb2282)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/04643397-e2dc-41af-ba6b-6848c20a59a3)
+
+
+
+## PipeLine
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/f4591fbc-defe-423a-b3c7-7f2353627ea7)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/5ea69796-9bbc-44a7-9d85-8c3f45074926)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/2dda1227-3998-4729-a5e2-4f966c3547fc)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/9b91f038-2ca4-404c-bb81-5aa3ccf66fe7)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/61201c08-d54c-47d3-befc-72dbb8e2ed18)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/b6eedd3f-6947-45c0-8f97-dfe8515fc5fd)
+
+
 
 
 
