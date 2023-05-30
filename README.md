@@ -1,7 +1,7 @@
-# $${\color{black} CI/CD Task }$$
+# $${\color{black} CI/CD  --- Task }$$
 > About the Task:
 
-*Task contains the Terraform code to build priavte EKS and bastionhost on aws, The infra includes creating a VPC with public and private subnets, launching bastion instance in the public subnet, and creating Private EKS Cluster .
+Task contains the Terraform code to build priavte EKS and bastionhost on aws, The infra includes creating a VPC with public and private subnets, launching bastion instance in the public subnet, and creating Private EKS Cluster .
 
 ###                    ______________________________________________________________________________________________
 
@@ -29,7 +29,7 @@ This project uses Terraform to create the following AWS resources:
 
 ###                ______________________________________________________________________________________________
 
-# *Prerequisites *
+# Prerequisites 
 
 - AWS account
 - Terraform installed on your local machine
@@ -52,9 +52,10 @@ This project uses Terraform to create the following AWS resources:
 
 ## Ansible configuration
  
- 1. Install Packages like `awscli` to use it to update kubeconfig file and `kubectl` to able to connect to the Cluster .
- 2. Move Jenkins Deployment manifest files to BastionHost by ansible and then apply it by k8s ansible module to deploy jenkins in cluster in jenkins namespace .
- 3. Configure the bastion host machine to act in the same time as a slave for jenkins server to run pipeline from it 
+ 1. Install Packages like awscli to use it to update kubeconfig file and kubectl to able to connect to the Cluster .
+ 2. Install Docker and Openjdk also to make bastion act in the same time as a slave for jenkins master .
+ 3. Move Jenkins Deployment manifest files to BastionHost by ansible and then apply it by k8s ansible module to deploy jenkins in cluster in jenkins namespace .
+ 
 
 
 ![image](https://github.com/ahmedgamalbakr/Infra/assets/106693415/ff1dff73-d586-4bbf-b8ce-423a8ea9e11f)
@@ -90,11 +91,27 @@ This project uses Terraform to create the following AWS resources:
 
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/9b91f038-2ca4-404c-bb81-5aa3ccf66fe7)
 
-![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/61201c08-d54c-47d3-befc-72dbb8e2ed18)
-
 ![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/b6eedd3f-6947-45c0-8f97-dfe8515fc5fd)
 
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/61201c08-d54c-47d3-befc-72dbb8e2ed18)
 
+
+## Application
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/a9b7bf50-ae2b-4149-ba50-f78a7542a0af)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/acf738e2-fca6-4420-94d2-d18e9f20038c)
+
+
+## Webhook
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/9dda762a-8ea1-4495-ad79-a091411d2881)
+
+![image](https://github.com/ahmedgamalbakr/newtest/assets/106693415/d47f0bfb-6cb9-42c1-b3b7-ed255bf8e9df)
+
+
+## Author
+
+- [Ahmed Gamal Bakr ](https://www.linkedin.com/in/ahmed-gamal-509218149/)
 
 
 
